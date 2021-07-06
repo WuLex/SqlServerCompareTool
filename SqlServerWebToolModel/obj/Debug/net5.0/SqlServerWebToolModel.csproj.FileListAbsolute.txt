@@ -1,0 +1,11 @@
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.deps.json
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.dll
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\bin\Debug\net5.0\ref\SqlServerWebToolModel.dll
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.pdb
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.AssemblyInfoInputs.cache
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.AssemblyInfo.cs
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.csproj.CoreCompileInputs.cache
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.dll
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\ref\SqlServerWebToolModel.dll
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.pdb

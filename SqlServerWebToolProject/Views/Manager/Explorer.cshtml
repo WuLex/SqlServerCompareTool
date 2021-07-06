@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Database 浏览器 - SqlServerSmallTool - http://www.cnblogs.com/fish-li</title>
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shCore.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shThemeDefault.css" />
+    <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css" />
+    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter/shCore.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter/shBrushSql.js"></script>
+    <script type="text/javascript" src="/js/my/fish.js"></script>
+    <script type="text/javascript" src="/js/my/Explorer.js"></script>
+</head>
+<body class="easyui-layout">
+    <div region="north" style="height: 65px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;"
+         title="数据库连接参数">
+        <table cellpadding="3" cellspacing="0" id="tblConnectionInfo" style="border: 0px; float: left;">
+            <tr>
+                <td>
+                    <b id="labDbType" class="redText"></b>&nbsp;连接参数
+                </td>
+                <td>
+                    Server
+                </td>
+                <td>
+                    <input type="text" id="txtServer" style="width: 230px" readonly="readonly" />
+                </td>
+                <td>
+                    UserName
+                </td>
+                <td>
+                    <input type="text" id="txtUserName" style="width: 170px" readonly="readonly" />
+                </td>
+                <td style="display: none">
+                    Password
+                </td>
+                <td style="display: none">
+                    <input type="password" id="txtPassword" style="width: 150px" readonly="readonly" />
+                </td>
+                <td>
+                    <a href="#" id="btnRefresh" class="easyui-linkbutton" iconcls="icon-reload">刷新对象列表</a>
+                </td>
+            </tr>
+        </table>
+        <div style="float: right; padding-top: 12px;">
+            <label title="显示代码时显示行号">
+                <input type="checkbox" id="chkEnableGutter" />行号
+            </label>
+        </div>
+    </div>
+    <div region="west" title="对象列表" split="true" style="width: 350px;">
+        <ul id="ulTree">
+        </ul>
+    </div>
+    <div region="center" style="overflow: hidden;">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false" style="overflow: hidden;">
+            <div title="操作说明" style="overflow: scroll;" closable="true">
+                <div style="padding: 20px">
+                    <p>
+                        １、点击“刷新对象列表”按钮，然后点击左边树节点即可查看相关的存储过程或表定义。
+                    </p>
+                    <p style="padding-top: 25px">
+                        ２、直接点击或右击表名或存储过程名，然后点击弹出的右键菜单项。如图：<img src="images/menu1.png" />
+                    </p>
+                    <p style="padding-top: 25px">
+                        ３、如果打开了多个标签页，可以在标签上右击鼠标。如图：<img src="images/menu2.png" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="waitMessageStyle">
+        <img src="Images/progress_loading.gif" /><span>请稍后......</span>
+    </div>
+    <div id="mm_tab" class="easyui-menu" style="width: 160px;">
+        <div id="mm_closeCurrent" iconcls="icon-close">
+            关闭当前页
+        </div>
+        <div id="mm_closeAll">
+            关闭全部页
+        </div>
+        <div id="mm_closeOthers">
+            关闭其它标签页
+        </div>
+    </div>
+    <div id="mm_tree" class="easyui-menu" style="width: 160px;">
+        <div id="mm_open" iconcls="icon-open">
+            当前页打开
+        </div>
+        <div id="mm_openInNewTab">
+            在新标签页中打开
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm_CopyItemName" iconcls="icon-Copy">
+            复制项目名称
+        </div>
+        <div id="mm_Search1" iconcls="icon-Search2">
+            在数据库中搜索
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm_ShowMultiItem" iconcls="icon-sql">
+            显示所有勾选项代码
+        </div>
+        <div id="mm_DeleteSelectedItems1" iconcls="icon-delete2">
+            删除所有勾选项
+        </div>
+    </div>
+    <div id="mm_tree2" class="easyui-menu" style="width: 160px;">
+        <div id="mm_RefreshNodes" iconcls="icon-Refresh">
+            刷新数据库对象
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm_CopyItemName2" iconcls="icon-Copy">
+            复制项目名称
+        </div>
+        <div id="mm_Search2" iconcls="icon-Search2">
+            在数据库中搜索
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm_ShowMultiItem2" iconcls="icon-sql">
+            显示所有勾选项代码
+        </div>
+        <div id="mm_DeleteSelectedItems2" iconcls="icon-delete2">
+            删除所有勾选项
+        </div>
+    </div>
+    <div id="mm_tree3" class="easyui-menu" style="width: 160px;">
+        <div id="mm_Search3" iconcls="icon-Search2">
+            在数据库中搜索
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm_ShowMultiItem3" iconcls="icon-sql">
+            显示所有勾选项代码
+        </div>
+        <div id="mm_DeleteSelectedItems3" iconcls="icon-delete2">
+            删除所有勾选项
+        </div>
+    </div>
+    <div style="display: none">
+        <input type="hidden" id="hidden_ConnectionId" />
+    </div>
+    <div id="divSearchDialog" style="padding: 10px; width: 450px; height: 260px; display: none;"
+         title="在数据库中搜索">
+        <table cellpadding="4" cellspacing="0" style="width: 100%; border: 0px;">
+            <tr>
+                <td style="width: 80px">
+                    数据库
+                </td>
+                <td>
+                    <span id="spanCurrentSearchDB"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    关键词
+                </td>
+                <td>
+                    <input type="text" id="txtSearchWord" class="myTextbox" style="width: 300px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    匹配方式
+                </td>
+                <td>
+                    <label>
+                        <input type="checkbox" id="chkWholeMatch" />全字符匹配
+                    </label>
+                    <label>
+                        <input type="checkbox" id="chkCaseSensitive" />区分大小写
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    搜索范围
+                </td>
+                <td id="tdSearchScope">
+                    <label title="需要搜索表定义">
+                        <input type="checkbox" id="chkTable" />T
+                    </label>
+                    <label title="需要搜索视图定义">
+                        <input type="checkbox" id="chkView" />V
+                    </label>
+                    <label title="需要搜索存储过程">
+                        <input type="checkbox" id="chkProcedure" checked="checked" />P
+                    </label>
+                    <label title="需要搜索自定义函数">
+                        <input type="checkbox" id="chkFunction" />F
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    限制结果
+                </td>
+                <td>
+                    最多显示<input type="text" id="txtLimitCount" value="50" class="myTextbox" style="width: 40px; height: 17px;" title="请注意：如果找到的结果太多，有些浏览器在显示时会比较慢，而且也没多大意义。" />个结果，0 表示不限制。
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

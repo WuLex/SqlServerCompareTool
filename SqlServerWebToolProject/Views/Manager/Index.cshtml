@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SqlServerSmallTool - http://www.cnblogs.com/fish-li</title>
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css"/>
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css"/>
+    <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css"/>
+    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/my/fish.js"></script>
+    <script type="text/javascript" src="/js/my/Home.js"></script>
+</head>
+
+<body class="easyui-layout">
+<div region="west" title="工具列表" split="true" style="width: 450px; overflow: hidden">
+    <div id="divToolList" class="easyui-accordion" fit="true">
+        <div title="比较数据库" iconcls="icon-Copy2" style="overflow: auto; padding: 10px;" selected="true">
+            <h3 class="blueText">
+                “比较数据库”工具能做什么？
+            </h3>
+            <p>
+                此工具可以比较二个数据库的表结构定义、存储过程代码是否一致。
+            </p>
+            <p>
+                说明：如果要比较SQL Server的数据库，请确保机器中已安装过SQL Server Management Objects (2005/2008)相关组件 （通常在安装SQL
+                Server 或 SQL Server Management Studio或其它SQL Server工具时会自动安装），否则将不会比较数据表结构的差异。
+            </p>
+            <p>
+                <a href="CompareDB.htm" target="_blank" class="easyui-linkbutton" iconcls="icon-Run">
+                    运行此工具
+                </a>
+            </p>
+        </div>
+        <div title="复制存储过程" iconcls="icon-reload" style="overflow: auto; padding: 10px;">
+            <h3 class="blueText">
+                “复制存储过程”工具能做什么？
+            </h3>
+            <p>
+                此工具可以将一个数据库的所有存储过程、视图、用户函数复制到另一个数据库。
+            </p>
+            <p>
+                如果目标数据库中存在同名的存储过程，将会被覆盖，没有的存储过程将会被创建。
+            </p>
+            <p>
+                <a href="CopyProcedure.htm" target="_blank" class="easyui-linkbutton" iconcls="icon-Run">
+                    运行此工具
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<div region="center" style="overflow: hidden;" title="数据库连接列表" iconcls="icon-Relation">
+    <div class="easyui-layout" fit="true" border="false">
+        <div region="center">
+            <table id="tblConnList">
+            </table>
+        </div>
+        <div region="south" split="true" style="height: 220px; padding: 10px;" title="操作说明"
+             iconcls="icon-help">
+            <p>
+                1. “新增连接”，“删除连接”，“设置连接”用于维护连接记录。
+            </p>
+            <p>
+                2. “打开连接”将根据选择的连接，打开 Database 对象浏览页面。
+            </p>
+        </div>
+    </div>
+</div>
+<div id="divConnectionDialog" style="padding: 10px; width: 420px; height: 320px; display: none;" title="新增/编辑 数据库连接信息">
+    <form id="formConnection" method="post" action="/AjaxService/SubmitConnectionInfo.cspx">
+        <table cellpadding="4" cellspacing="0" style="width: 100%; border: 0px;">
+            <tr>
+                <td>
+                    服务器IP/Name
+                </td>
+                <td>
+                    <input id="txtServerIP" name="ServerIP" type="text" class="myTextbox" style="width: 220px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    登录方式
+                </td>
+                <td>
+                    <select id="cboSSPI" name="SSPI" style="width: 222px" panelwidth="222">
+                        <option value="false">用户名／密码</option>
+                        <option value="true">Windows连接</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    登录名
+                </td>
+                <td>
+                    <input id="txtUserName" name="UserName" type="text" class="myTextbox" style="width: 220px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    登录密码
+                </td>
+                <td>
+                    <input id="txtPassword" name="Password" type="text" class="myTextbox" style="width: 220px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input id="hfConnectionId" name="ConnectionId" type="hidden" value=""/>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <span id="spanWait" style="display: none;" class="waitText">请稍后......</span>
+        </div>
+    </form>
+</div>
+</body>
+</html>

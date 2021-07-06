@@ -1,0 +1,5 @@
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolLib\obj\Debug\net5.0\SqlServerWebToolLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolLib\obj\Debug\net5.0\SqlServerWebToolLib.AssemblyInfoInputs.cache
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolLib\obj\Debug\net5.0\SqlServerWebToolLib.AssemblyInfo.cs
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolLib\obj\Debug\net5.0\SqlServerWebToolLib.csproj.CoreCompileInputs.cache
+D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolLib\obj\Debug\net5.0\SqlServerWebToolLib.csprojAssemblyReference.cache

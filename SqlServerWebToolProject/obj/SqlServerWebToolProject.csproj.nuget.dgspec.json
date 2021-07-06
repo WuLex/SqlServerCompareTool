@@ -1,0 +1,194 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj": {}
+  },
+  "projects": {
+    "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj",
+        "projectName": "SqlServerWebToolLib",
+        "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj": {
+                "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj",
+        "projectName": "SqlServerWebToolModel",
+        "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
+        "projectName": "SqlServerWebToolProject",
+        "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj": {
+                "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj"
+              },
+              "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj": {
+                "projectPath": "D:\\mywebproject\\SqlServerWebToolProject\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>数据库比较工具 - SqlServerSmallTool - http://www.cnblogs.com/fish-li</title>
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css"/>
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css"/>
+    <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shCore.css"/>
+    <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shThemeDefault.css"/>
+    <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css"/>
+
+    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.cookie.js"></script>
+
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter/shCore.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter/shBrushSql.js"></script>
+
+    <script type="text/javascript" src="/js/my/fish.js"></script>
+    <script type="text/javascript" src="/js/my/CompareDB.js"></script>
+</head>
+<body class="easyui-layout">
+
+<div region="north" style="height: 100px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;" split="true" title="选择数据库">
+    <table cellpadding="3" cellspacing="0" style="border: 0px; float: left;" id="tblChoiceConn">
+        <tr>
+            <td>源</td>
+            <td>连接帐号</td>
+            <td style="width: 320px">
+                <input type="text" id="txtSrcConn" class="myTextbox" style="width: 300px"/>
+            </td>
+            <td>数据库</td>
+            <td style="width: 220px">
+                <select id="cboSrcDB" style="width: 200px"></select>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>目标</td>
+            <td>连接帐号</td>
+            <td>
+                <input type="text" id="txtDestConn" class="myTextbox" style="width: 300px"/>
+            </td>
+            <td>数据库</td>
+            <td>
+                <select id="cboDestDB" style="width: 200px"></select>
+            </td>
+            <td>
+                <a href="javascript:void(0)" id="btnCompareDB" class="easyui-linkbutton" iconCls="icon-Run">开始比较数据库</a>
+            </td>
+        </tr>
+    </table>
+    <div id="divCompareOptions" style="float: right; padding-top: 3px;">
+        <label title="需要比较表结构"><input type="checkbox" id="chkCmpTable"/>T</label>
+        <label title="需要比较视图"><input type="checkbox" id="chkCmpView"/>V</label>
+        <label title="需要比较存储过程"><input type="checkbox" id="chkCmpProcedure"/>P</label>
+        <label title="需要比较自定义函数"><input type="checkbox" id="chkCmpFunction"/>F</label>
+    </div>
+    <input type="hidden" id="hfSrcConnId" value=""/>
+    <input type="hidden" id="hfDestConnId" value=""/>
+</div>
+
+<div region="center" style="overflow: scroll; padding: 10px" title="比较结果" id="divCompareResult">
+</div>
+
+<div class="waitMessageStyle">
+    <img src="Images/progress_loading.gif"/><span>请稍后......</span>
+</div>
+
+</body>
+</html>

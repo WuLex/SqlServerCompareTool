@@ -1,0 +1,255 @@
+﻿*{
+	font-family: Courier New;
+	font-size: 10pt;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+}
+p{
+	line-height: 150%;
+}
+pre{
+	padding: 10px 0px;
+	font-size: 10pt;
+	line-height: 150%;
+}
+th{
+	text-align: left;
+}
+.Table{
+	padding: 8px;
+}
+.subTitle{
+	padding: 5px 0px;
+	font-weight: bold;
+	color: #f00;
+	font-size: 12pt;
+}
+.h3Title{
+	padding: 5px 0px;
+	font-weight: bold;
+	color: #f00;
+	font-size: 12pt;
+}
+
+.waitMessageStyle {
+	border: 2px solid #FFCCFF;
+	padding: 5px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: none;
+	z-index: 1000;
+	width: 120px;
+	background-color: #FFFFE8;
+}
+.waitMessageStyle span {
+	font-weight: bold;
+	padding-left: 10px;
+	color: #FF66CC;
+}
+
+.waitText{
+	color: #f00;
+	font-weight: bold;
+	padding-left: 115px;
+}
+
+.myTextbox{
+	height: 20px; 
+	border: 1px solid #A4BED4;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	background-color: #fff;
+}
+.myTextbox2{
+	height: 20px; 
+	border: 1px solid #A4BED4;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10pt;
+	background-color: Transparent;
+}
+.redText{
+	color: #f00;
+}
+.blueText{
+	color:#0099FF;
+}
+.boldText{
+	font-weight: bold;
+}
+.myTextboxReadonly{
+	height: 20px; 
+	border: 1px solid #A4BED4;
+	background-color: #fff;
+	color: #ACA899;
+}
+.floatButton{
+	display: block;
+	width: 18px;
+	height: 18px;
+	float: left;
+	cursor: pointer;
+	border: solid 1px #fff;
+}
+.floatButton:hover {
+	border: 1px solid #66CCFF;
+}
+
+.searchButton{
+	background: url(../Images/search.png) no-repeat 2px 1px;
+}
+.clearButton{
+	background: url(../Images/removeformat.gif) no-repeat 2px 1px;
+}
+.CompareResult{
+	width: 98%;
+	border: 0px;
+	margin-bottom: 15px;
+}
+
+h3.warning {
+	background: url(../Images/RedWarning.gif) no-repeat 0 3px;
+	margin: 0px;
+	padding: 3px 0 3px 22px;
+	font-size: 11pt;
+	color: #3399FF;
+}
+h3.success {
+	background: url(../Images/ok.gif) no-repeat 0 3px;
+	margin: 20px 0 0 0;
+	padding: 3px 0 3px 22px;
+	font-size: 11pt;
+	color: #009933;
+}
+.pluginInitInfo{
+	padding: 5px 0px 5px 22px;
+}
+.plugName{
+	font-weight: bold;
+}
+.plugErrorReason{
+	padding: 3px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+/*---------- GridVew Style -------------- */
+.GridView{
+	color: #333333;
+	border: solid 1px #D0D0D5;
+	width: 98%
+}
+.GridView_HeaderStyle{
+	background-color: #5D7B9D;
+	font-weight: bold;
+	color: #fff;
+	height: 22px;
+}
+.GridView_RowStyle{
+	background-color: #F7F6F3;
+	color: #333333;
+	height: 22px;
+}
+.GridView_AlternatingRowStyle{
+	background-color: #fff;
+	color: #284775;
+	height: 22px;
+}
+
+/*----------------------------  jquery-easyui  ------------------------------*/
+.spinner, .combo{
+	height: 22px; 
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+.combo-arrow, .combo-text{
+	height: 22px;
+}
+.easyui-numberspinner, .combo-text{
+	background-color: #fff;
+	height: 22px;
+}
+.spinner-arrow-up, .spinner-arrow-down{
+	height: 11px;
+}
+.combobox-item{
+	cursor: pointer;
+}
+span .ui-button-text{
+	padding: 0px;
+}
+.tabs-panels{ /* fix Easy-UI bug */
+	overflow: hidden;
+}
+.tabs li.tabs-selected a {
+	color: #FF6666;
+}
+.combo-text{
+	background-color: #fff;
+}
+
+
+.icon-Add2{
+	background:url('../Images/AddTableHS.png') no-repeat;
+}
+.icon-Copy{
+	background:url('../Images/CopyHS.png') no-repeat;
+}
+.icon-Copy2{
+	background:url('../Images/CopyFolderHS.png') no-repeat;
+}
+.icon-Delete{
+	background:url('../Images/DeleteHS.gif') no-repeat;
+}
+.icon-delete2{
+	background:url('../Images/delete.gif') no-repeat;
+}
+.icon-open{
+	background:url('../Images/openHS.png') no-repeat;
+}
+.icon-edit2{
+	background:url('../Images/EditTableHS.png') no-repeat;
+}
+.icon-go{
+	background:url('../Images/go.png') no-repeat;	
+}
+.icon-help{
+	background:url('../Images/Help.png') no-repeat;	
+}
+.icon-Relation{
+	background:url('../Images/RelationshipsHS.png') no-repeat;	
+}
+.icon-Breakpoint{
+	background:url('../Images/BreakpointHS.png') no-repeat;	
+}
+.icon-Run{
+	background:url('../Images/FormRunHS.png') no-repeat;	
+}
+.icon-service{
+	background:url('../Images/service.gif') no-repeat;	
+}
+.icon-search{
+	background:url('../Images/search.png') no-repeat;	
+}
+.icon-Search2{
+	background:url('../Images/Search2.gif') no-repeat;	
+}
+.icon-Refresh{
+	background:url('../Images/Refresh.gif') no-repeat;	
+}
+.icon-sql{
+	background:url('../Images/sql.gif') no-repeat;	
+}
+.icon-close{
+	background:url('../Images/close.gif') no-repeat;	
+}
+
