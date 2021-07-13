@@ -9,3 +9,14 @@ D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\S
 D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.dll
 D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\ref\SqlServerWebToolModel.dll
 D:\mywebproject\SqlServerWebToolProject\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.pdb
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.deps.json
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.dll
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\bin\Debug\net5.0\ref\SqlServerWebToolModel.dll
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\bin\Debug\net5.0\SqlServerWebToolModel.pdb
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.AssemblyInfoInputs.cache
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.AssemblyInfo.cs
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.csproj.CoreCompileInputs.cache
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.dll
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\ref\SqlServerWebToolModel.dll
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.pdb

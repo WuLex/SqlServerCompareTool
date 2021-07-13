@@ -36,6 +36,10 @@ namespace SqlServerSmallToolLib
             }
         }
 
+        public ConnectionManager()
+        {
+        }
+
         [MethodImpl(MethodImplOptions.Synchronized)]
         public List<ConnectionInfo> GetList()
         {

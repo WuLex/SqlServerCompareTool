@@ -14,7 +14,7 @@ namespace SqlServerSmallToolLib
 			BaseBLL instance = new SqlServerBLL();
 
 			if( string.IsNullOrEmpty(connectionId) == false )
-				instance.ConnectionInfo = ConnectionManager.GetConnectionInfoById(connectionId, false);
+				instance.ConnectionInfo = new ConnectionManager().GetConnectionInfoById(connectionId, false);
 
 			return instance;
 		}
