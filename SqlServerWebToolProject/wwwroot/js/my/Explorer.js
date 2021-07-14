@@ -34,7 +34,7 @@ $(function() {
 function LoadConnectionParameters(){
 	$.ajax({
 		cache: false, dataType: "json", type: "GET",
-		url: "/AjaxService/GetConnectionInfoByURL.cspx",
+		url: "/AjaxService/GetConnectionInfoByURL",
 		data: { url: window.location.href },
 		success: function (json) {
 			$("#hidden_ConnectionId").val(json.ConnectionId);
@@ -75,7 +75,7 @@ function btnRefresh_click(){
 	
 	$.ajax({
 		type: "GET",  dataType: "json", cache: false,
-		url: "/AjaxService/GetTreeNodes.cspx",
+		url: "/AjaxService/GetTreeNodes",
 		data: {	connectionId: $('#hidden_ConnectionId').val() },
 		complete: function(){ $(".waitMessageStyle").hide(); $("#btnRefresh").show(); },
 		success: function(json) {
@@ -89,7 +89,7 @@ function btnRefresh_click(){
 				*/
 				// 重新加载树节点
 				$("#ulTree").tree("loadData", json.dbList);
-				$("#ulTree").tree("options").url = "/AjaxService/GetDataBaseChildren.cspx";
+				$("#ulTree").tree("options").url = "/AjaxService/GetDataBaseChildren";
 			}
 		}
 	});
@@ -155,22 +155,22 @@ function TreeNode_Click(node, showInNewTab) {
 	
 	var flag = node.attributes.NodeFlag;
 	if( flag == g_node_sp) {
-		ShowResultInTab("/AjaxService/GetStoreProcedureCode.cspx", "text", 
+		ShowResultInTab("/AjaxService/GetStoreProcedureCode", "text", 
 			{connectionId: GetConnectionId(), dbName: root.text,  spName: node.text},
 			node.text,		"Procedure",	showInNewTab);
 	}
 	else if( flag == g_node_func) {
-		ShowResultInTab("/AjaxService/GetFunctionCode.cspx", "text", 
+		ShowResultInTab("/AjaxService/GetFunctionCode", "text", 
 			{connectionId: GetConnectionId(), dbName: root.text,  funcName: node.text},
 			node.text,		"Function",	showInNewTab);
 	}
 	else if( flag == g_node_view) {
-		ShowResultInTab("/AjaxService/GetViewCode.cspx", "text", 
+		ShowResultInTab("/AjaxService/GetViewCode", "text", 
 			{connectionId: GetConnectionId(), dbName: root.text,  viewName: node.text},
 			node.text,		"View",	showInNewTab);
 	}
 	else if( flag == g_node_tbl) {
-		ShowResultInTab("/AjaxDataTable/TableDescribe.cspx", "html", 
+		ShowResultInTab("/AjaxDataTable/TableDescribe", "html", 
 			{connectionId: GetConnectionId(), dbName: root.text,  tableName: node.text},
 			node.text,		"Table",		showInNewTab);
 	}
@@ -284,7 +284,7 @@ function RefreshNodesForOneDB(){
 	
 	$.ajax({
 		type: "GET",  dataType: "json", cache: false,
-		url: "/AjaxService/GetTreeNodesByDbName.cspx",
+		url: "/AjaxService/GetTreeNodesByDbName",
 		data: { connectionId: GetConnectionId(), dbName: root.text },
 		complete: function(){ $(".waitMessageStyle").hide(); },
 		success: function(json){
@@ -341,7 +341,7 @@ function SearchDataBase(connId, dbName, str, scope, limit){
 	$(".waitMessageStyle").show();
 	$.ajax({
 		cache: false, dataType: "json", type: "GET",
-		url: '/AjaxService/SearchDB.cspx',
+		url: '/AjaxService/SearchDB',
 		data:{  connectionId: connId, 
 				dbName: dbName, 
 				searchWord: str,
@@ -436,7 +436,7 @@ function ShowMultiSelectedItemCode(){
 	$(".waitMessageStyle").show();	
 	if( spNames == "" && viewNames == "" && funcNames == "" )
 		$.ajax({
-			type: "POST",  dataType: "json", cache: false,	url: "/AjaxDataTable/MultiTableDescribe.cspx",
+			type: "POST",  dataType: "json", cache: false,	url: "/AjaxDataTable/MultiTableDescribe",
 			data: { connectionId: GetConnectionId(), dbName: databaseName,  tableNames: tblNames },
 			complete: function(){ $(".waitMessageStyle").hide(); },
 			success: function(json){
@@ -457,7 +457,7 @@ function ShowMultiSelectedItemCode(){
 	else
 		$.ajax({
 			type: "POST",  dataType: "json", cache: false,
-			url: "/AjaxService/GetSelectedItemCode.cspx",
+			url: "/AjaxService/GetSelectedItemCode",
 			data: { connectionId: GetConnectionId(), dbName: databaseName,  tblNames: tblNames, spNames: spNames, viewNames: viewNames, funcNames: funcNames },
 			complete: function(){ $(".waitMessageStyle").hide(); },
 			success: function(json){
@@ -515,7 +515,7 @@ function DeleteSelectedItems(){
 		$(".waitMessageStyle").show();
 		$.ajax({
 			type: "POST",  dataType: "text", cache: false,
-			url: "/AjaxService/DeleteSelectedItems.cspx",
+			url: "/AjaxService/DeleteSelectedItems",
 			data: { connectionId: GetConnectionId(), dbName: databaseName,  tblNames: tblNames, spNames: spNames, viewNames: viewNames, funcNames: funcNames },
 			complete: function(){ $(".waitMessageStyle").hide(); },
 			success: function(text){

@@ -6,7 +6,7 @@ $(function(){
 
 function SetDataGrid(){
 	$('#tblConnList').datagrid({
-	    url: '/AjaxService/GetAllConnectionInfo.cspx?__t=' + Math.random(),
+	    url: '/AjaxService/GetAllConnectionInfo?__t=' + Math.random(),
 		fit: true, rownumbers:true, singleSelect: true, border: false,
 		loadMsg: "正在加载数据，请稍后......",
 		columns:[[
@@ -167,7 +167,7 @@ function DeleteConnection(){
 		if (dlgResult){
 			$.ajax({
 				cache: false, dataType: "text", type: "GET",
-				url: "/AjaxService/DeleteConnection.cspx",
+				url: "/AjaxService/DeleteConnection",
 				data: { connectionId: row.ConnectionId },
 				success: function (responseText) {
 						var index = $('#tblConnList').datagrid('getRowIndex', row);
@@ -190,7 +190,7 @@ function TestConnection(){
 	if( ValidateForm() == false ) return false;
 	
 	$("#formConnection").ajaxSubmit({
-	    cache: false, url: "/AjaxService/TestConnection.cspx",
+	    cache: false, url: "/AjaxService/TestConnection",
 		beforeSubmit: function(formData, jqForm, options) { $("#spanWait").show(); },
 		complete: function() { $("#spanWait").hide(); },
 		success: function(responseText, statusText) {

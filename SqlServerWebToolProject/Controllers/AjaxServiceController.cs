@@ -95,6 +95,7 @@ public class AjaxServiceController
         return new JsonResult(result);
     }
 
+    [HttpPost]
     public string SubmitConnectionInfo(ConnectionInfo info)
     {
         if (string.IsNullOrEmpty(info.ServerIP))

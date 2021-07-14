@@ -44,7 +44,7 @@ function btnRefresh_click(){
 	$(".waitMessageStyle").show();
 	$.ajax({
 		cache: false, dataType: "json", type: "GET",
-		url: "/AjaxService/GetDbSpViewFuncList.cspx",
+		url: "/AjaxService/GetDbSpViewFuncList",
 		data: { connectionId: $("#hfSrcConnId").val(), dbName: $("#cboSrcDB").combobox("getValue") },
 		complete: function(){ $(".waitMessageStyle").hide(); $("#btnRefresh").show(); },
 		success: function(json){
@@ -82,7 +82,7 @@ function btnRun_click(){
 	
 	$.ajax({
 		cache: false, dataType: "text", type: "POST",
-		url: '/AjaxService/CopyProcedures.cspx',
+		url: '/AjaxService/CopyProcedures',
 		data:{  srcConnId: $("#hfSrcConnId").val(), 
 				destConnId: $("#hfDestConnId").val(), 
 				srcDB: $("#cboSrcDB").combobox("getValue"), 

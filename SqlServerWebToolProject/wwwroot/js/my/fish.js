@@ -147,7 +147,7 @@ function SetChoiceDbControls(){
 		var list = null;
 		$.ajax({
 			async: false, dataType: "json", type: "GET",
-			url: '/AjaxService/GetAllConnectionInfo.cspx',
+			url: '/AjaxService/GetAllConnectionInfo',
 			success: function (json) {
 				list = json;
 			}
@@ -188,7 +188,7 @@ function SetChoiceDbControls(){
 	var FillDbComboBox = function(cboDb, row){
 		$.ajax({
 			dataType: "json", type: "GET",
-			url: '/AjaxService/GetDbList.cspx',
+			url: '/AjaxService/GetDbList',
 			data: { connectionId: row.ConnectionId },
 			success: function (json) {
 				$("#" + cboDb).combobox("loadData", json);

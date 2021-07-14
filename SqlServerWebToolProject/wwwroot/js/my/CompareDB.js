@@ -29,7 +29,7 @@ function btnCompareDB_click(){
 	
 	$.ajax({
 		cache: false, dataType: "json", type: "GET",
-		url: '/AjaxService/CompareDB.cspx',
+		url: '/AjaxService/CompareDB',
 		data:{  srcConnId: $("#hfSrcConnId").val(), 
 				destConnId: $("#hfDestConnId").val(), 
 				srcDB: $("#cboSrcDB").combobox("getValue"), 

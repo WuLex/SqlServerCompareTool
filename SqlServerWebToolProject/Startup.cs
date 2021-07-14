@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SqlServerSmallToolLib;
+using SqlServerWebToolLib.Interfaces;
 
 namespace SqlServerWebToolProject
 {
@@ -26,6 +28,7 @@ namespace SqlServerWebToolProject
         {
             services.AddScoped<IActionResultExecutor<DataTableResult>, DataTableResultExecutor<DataTableResult>>();
             services.AddScoped<IActionResultExecutor<DataSetResult>, DataSetResultExecutor<DataSetResult>>();
+            services.AddScoped<IConnectionManager, ConnectionManager>();
             services.AddControllersWithViews();
         }
 
