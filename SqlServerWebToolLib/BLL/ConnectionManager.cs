@@ -5,12 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Runtime.CompilerServices;
-using RwConfigDemo;
 using SqlServerWebToolModel;
 using Microsoft.AspNetCore.Hosting;
+using SqlServerWebToolLib.Exceptions;
+using SqlServerWebToolLib.Helpers;
 using SqlServerWebToolLib.Interfaces;
 
-namespace SqlServerSmallToolLib
+namespace SqlServerWebToolLib.BLL
 {
     public class ConnectionManager : IConnectionManager
     {
@@ -27,7 +28,7 @@ namespace SqlServerSmallToolLib
                 _hostingEnvironment = env;
 
                 string appDataPath = Path.Combine(_hostingEnvironment.WebRootPath, "App_Data");
-                s_savePath = Path.Combine(_hostingEnvironment.ContentRootPath, @"App_Data\Connection.xml");
+                s_savePath = Path.Combine(_hostingEnvironment.ContentRootPath, @"Files\Connection.xml");
                 if (Directory.Exists(appDataPath) == false)
                     Directory.CreateDirectory(appDataPath);
             }

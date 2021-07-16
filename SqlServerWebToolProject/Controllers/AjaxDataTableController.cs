@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using Microsoft.AspNetCore.Mvc;
+using SqlServerWebToolLib.BLL;
 using SqlServerWebToolProject.MvcEx;
 
-
-namespace SqlServerSmallToolLib
+namespace SqlServerWebToolProject.Controllers
 {
 	public class AjaxDataTableController : Controller
 	{
