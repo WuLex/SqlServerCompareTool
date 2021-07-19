@@ -12,7 +12,7 @@ namespace SqlServerWebToolProject.Controllers
 	public class AjaxDataTableController : Controller
 	{
 		
-		public object TableDescribe(string connectionId, string dbName, string tableName)
+		public IActionResult TableDescribe(string connectionId, string dbName, string tableName)
 		{
 			if( string.IsNullOrEmpty(connectionId) || string.IsNullOrEmpty(dbName) || string.IsNullOrEmpty(tableName) )
 				throw new ArgumentException("connString or tableName is null.");
@@ -23,7 +23,7 @@ namespace SqlServerWebToolProject.Controllers
 			return new DataTableResult(table);
 		}
 
-		public object MultiTableDescribe(string connectionId, string dbName, string tableNames)
+		public IActionResult MultiTableDescribe(string connectionId, string dbName, string tableNames)
 		{
 			if( string.IsNullOrEmpty(connectionId) || string.IsNullOrEmpty(dbName) || string.IsNullOrEmpty(tableNames) )
 				throw new ArgumentException("connString or tableName is null.");

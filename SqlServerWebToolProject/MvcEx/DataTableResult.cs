@@ -77,7 +77,7 @@ namespace SqlServerWebToolProject.MvcEx
         //        list.Add(new DataSetJsonItem { TableName = table.TableName, Html = html });
         //    }
 
-        //    JsonResult json = new JsonResult(list);
+        //    JsonResult json = Json(list);
         //    (json as IActionResult).Ouput(context);
         //}
         

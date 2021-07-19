@@ -20,37 +20,37 @@ namespace SqlServerWebToolProject.Controllers
             _connectionManager = connectionManager;
         }
 
-        public object GetTreeNodes(string connectionId)
+        public IActionResult GetTreeNodes(string connectionId)
         {
             BaseBLL instance = BaseBLL.GetInstance(connectionId);
             var result = instance.GetTreeNodes(instance.ConnectionInfo);
-            return new JsonResult(result);
+            return Json(result);
         }
 
-        public object GetDataBaseChildren(string id)
+        public IActionResult GetDataBaseChildren(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new ArgumentNullException("id");
 
-            string[] array = id.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+            string[] array = id.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             if (array.Length != 2)
                 throw new ArgumentException("id is error.");
 
             return GetTreeNodesByDbName(array[1], array[0]);
         }
 
-        public object GetTreeNodesByDbName(string connectionId, string dbName)
+        public IActionResult GetTreeNodesByDbName(string connectionId, string dbName)
         {
             BaseBLL instance = BaseBLL.GetInstance(connectionId);
             var result = instance.GetTreeNodesByDbName(instance.ConnectionInfo, dbName);
-            return new JsonResult(result);
+            return Json(result);
         }
 
-        public object GetDbSpViewFuncList(string connectionId, string dbName)
+        public IActionResult GetDbSpViewFuncList(string connectionId, string dbName)
         {
             BaseBLL instance = BaseBLL.GetInstance(connectionId);
             var result = instance.GetDbSpViewFuncList(instance.ConnectionInfo, dbName);
-            return new JsonResult(result);
+            return Json(result);
         }
 
         public string GetStoreProcedureCode(string connectionId, string dbName, string spName)
@@ -71,23 +71,27 @@ namespace SqlServerWebToolProject.Controllers
             return instance.GetViewCode(instance.ConnectionInfo, dbName, viewName);
         }
 
-        public object GetSelectedItemCode(string connectionId,
+        public IActionResult GetSelectedItemCode(string connectionId,
             string dbName, string tblNames, string spNames, string viewNames, string funcNames)
         {
             BaseBLL instance = BaseBLL.GetInstance(connectionId);
             var result =
                 instance.GetSelectedItemCode(instance.ConnectionInfo, dbName, tblNames, spNames, viewNames, funcNames);
-            return new JsonResult(result);
+            return Json(result);
         }
 
-        public object GetDbList(string connectionId)
+        [HttpGet]
+        [HttpPost]
+        public IActionResult GetDbList(string connectionId)
         {
             BaseBLL instance = BaseBLL.GetInstance(connectionId);
             var result = instance.GetDbList(instance.ConnectionInfo);
-            return new JsonResult(result);
+            return Json(result);
         }
 
-        public object GetAllConnectionInfo()
+        [HttpGet]
+        [HttpPost]
+        public IActionResult GetAllConnectionInfo()
         {
             List<ConnectionInfo> list = _connectionManager.GetList();
 
@@ -95,31 +99,33 @@ namespace SqlServerWebToolProject.Controllers
             result.total = list.Count;
             result.rows = list;
 
-            return new JsonResult(result);
+            return Json(result);
         }
 
-    [HttpPost]
-    //[Consumes("application/x-www-form-urlencoded")]
-    //public string SubmitConnectionInfo([FromForm]ConnectionInfo ddd )
-    public string SubmitConnectionInfo(string ServerIP, bool SSPI, string UserName,string Password, string ConnectionId)
-    {
-        //IFormCollection 
 
-        ConnectionInfo info = new ConnectionInfo()
+
+        [HttpPost]
+        //[Consumes("application/x-www-form-urlencoded")]
+        //public string SubmitConnectionInfo([FromForm]ConnectionInfo ddd )
+        public string SubmitConnectionInfo(string ServerIP, bool SSPI, string UserName, string Password, string ConnectionId)
         {
+            //IFormCollection 
 
-            ServerIP = ServerIP,
-            SSPI = SSPI,
-            UserName = UserName,
-            Password = Password,
-            ConnectionId = ConnectionId,
+            ConnectionInfo info = new ConnectionInfo()
+            {
 
-        };
+                ServerIP = ServerIP,
+                SSPI = SSPI,
+                UserName = UserName,
+                Password = Password,
+                ConnectionId = ConnectionId,
+
+            };
 
 
 
-        if (string.IsNullOrEmpty(info.ServerIP))
-            throw new MyMessageException("ServerIP is empty.");
+            if (string.IsNullOrEmpty(info.ServerIP))
+                throw new MyMessageException("ServerIP is empty.");
 
             if (info.SSPI == false && string.IsNullOrEmpty(info.UserName))
                 throw new MyMessageException("UserName is empty.");
@@ -153,7 +159,7 @@ namespace SqlServerWebToolProject.Controllers
             return instance.TestConnection(info);
         }
 
-        public object GetConnectionInfoByURL(string url)
+        public IActionResult GetConnectionInfoByURL(string url)
         {
             if (string.IsNullOrEmpty(url))
                 throw new ArgumentNullException("url");
@@ -167,14 +173,14 @@ namespace SqlServerWebToolProject.Controllers
             string connectionId = queryString["id"];
 
             ConnectionInfo info = _connectionManager.GetConnectionInfoById(connectionId, true);
-            return new JsonResult(info);
+            return Json(info);
         }
 
         //[Action]
-        //public object CompareDB(string srcConnId, string destConnId, string srcDB, string destDB, string flag)
+        //public IActionResult CompareDB(string srcConnId, string destConnId, string srcDB, string destDB, string flag)
         //{
         //    var result = CompareDBHelper.CompareDB(srcConnId, destConnId, srcDB, destDB, flag);
-        //    return new JsonResult(result);
+        //    return Json(result);
         //}
 
         public string CopyProcedures(string srcConnId, string destConnId, string srcDB, string destDB,
@@ -200,7 +206,7 @@ namespace SqlServerWebToolProject.Controllers
             instance.DeleteSelectedItems(instance.ConnectionInfo, dbName, tblNames, spNames, viewNames, funcNames);
         }
 
-        public object SearchDB(string connectionId, string dbName, string searchWord,
+        public IActionResult SearchDB(string connectionId, string dbName, string searchWord,
             int wholeMatch, int caseSensitive, string searchScope, string limitCount)
         {
             if (string.IsNullOrEmpty(searchWord))
@@ -239,14 +245,14 @@ namespace SqlServerWebToolProject.Controllers
                         }
                 }
             }
-            return new JsonResult(result);
+            return Json(result);
         }
 
-        public object CompareDB(CompareDbOption option)
+        public IActionResult CompareDB(CompareDbOption option)
         {
             var result = CompareDBHelper.CompareDB(option.SrcConnId, option.DestConnId,
                 option.SrcDb, option.DestDb, option.Flag);
-            return new JsonResult(result);
+            return Json(result);
         }
     }
 
