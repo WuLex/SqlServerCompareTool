@@ -7,17 +7,17 @@ namespace SqlServerWebToolModel
 {
     public sealed class JsTreeNode
     {
-        public string id;
-        public string text;
+        public string id { get; set; }
+        public string text { get; set; }
         public string state;
-        public List<JsTreeNode> children;
-        public JsTreeNodeCustAttr attributes;
+        public List<JsTreeNode> children { get; set; }
+        public JsTreeNodeCustAttr attributes { get; set; }
     }
 
 
     public sealed class JsTreeNodeCustAttr
     {
-        public string NodeFlag;
+        public string NodeFlag { get; set; }
 
         public JsTreeNodeCustAttr(string flag)
         {
@@ -27,7 +27,7 @@ namespace SqlServerWebToolModel
 
     public sealed class GetTreeNodesResult
     {
-        public List<JsTreeNode> dbList;
-        public string ErrorMessage;
+        public List<JsTreeNode> dbList { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

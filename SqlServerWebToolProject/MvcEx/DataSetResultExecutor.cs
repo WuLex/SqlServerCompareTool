@@ -10,9 +10,9 @@ namespace SqlServerWebToolProject.MvcEx
 {
     public class DataSetResultExecutor<T> : IActionResultExecutor<T> where T : DataSetResult
     {
-       /// <summary>
-       /// 执行
-       /// </summary>
+        /// <summary>
+        /// 执行
+        /// </summary>
         /// <param name="context">上下文</param>
         /// <param name="result">值</param>
         /// <returns></returns>
@@ -24,5 +24,5 @@ namespace SqlServerWebToolProject.MvcEx
             string html = DataTableHelper.TableToHtml(result._ds.Tables[0]);
             await context.HttpContext.Response.WriteAsync(html);
         }
-    }      
+    }
 }

@@ -32,7 +32,7 @@ namespace SqlServerWebToolProject.Controllers
             if (string.IsNullOrEmpty(id))
                 throw new ArgumentNullException("id");
 
-            string[] array = id.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] array = id.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
             if (array.Length != 2)
                 throw new ArgumentException("id is error.");
 
@@ -100,28 +100,29 @@ namespace SqlServerWebToolProject.Controllers
             result.rows = list;
 
             return Json(result);
+            //var Res = new JsonResult(result);
+            //return Res;
+            //return new JsonResult(result);
+            //return Json(new {name = "wu", age = 12});
         }
-
 
 
         [HttpPost]
         //[Consumes("application/x-www-form-urlencoded")]
         //public string SubmitConnectionInfo([FromForm]ConnectionInfo ddd )
-        public string SubmitConnectionInfo(string ServerIP, bool SSPI, string UserName, string Password, string ConnectionId)
+        public string SubmitConnectionInfo(string ServerIP, bool SSPI, string UserName, string Password,
+            string ConnectionId)
         {
             //IFormCollection 
 
             ConnectionInfo info = new ConnectionInfo()
             {
-
                 ServerIP = ServerIP,
                 SSPI = SSPI,
                 UserName = UserName,
                 Password = Password,
                 ConnectionId = ConnectionId,
-
             };
-
 
 
             if (string.IsNullOrEmpty(info.ServerIP))
@@ -222,7 +223,8 @@ namespace SqlServerWebToolProject.Controllers
             int limitResultCount = 0;
             int.TryParse(limitCount, out limitResultCount);
 
-            StringSearcher searcher = StringSearcher.GetStringSearcher(searchWord, (wholeMatch == 1), (caseSensitive == 1));
+            StringSearcher searcher =
+                StringSearcher.GetStringSearcher(searchWord, (wholeMatch == 1), (caseSensitive == 1));
 
             foreach (ItemCode code in list)
             {
@@ -245,6 +247,7 @@ namespace SqlServerWebToolProject.Controllers
                         }
                 }
             }
+
             return Json(result);
         }
 

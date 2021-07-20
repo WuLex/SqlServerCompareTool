@@ -6,21 +6,21 @@ namespace SqlServerWebToolModel
 {
     public sealed class CompareResultItem
     {
-        public string ObjectType;
-        public string ObjectName;
-        public int LineNumber;
-        public string SrcLine;
-        public string DestLine;
-        public string Reason;
-        public int SrcFirstLine;
-        public int DestFirstLine;
+        public string ObjectType { get; set; }
+        public string ObjectName { get; set; }
+        public int LineNumber { get; set; }
+        public string SrcLine { get; set; }
+        public string DestLine { get; set; }
+        public string Reason { get; set; }
+        public int SrcFirstLine { get; set; }
+        public int DestFirstLine { get; set; }
     }
 
     public sealed class SearchResultItem
     {
-        public string ObjectType;
-        public string ObjectName;
-        public int LineNumber;
-        public string SqlScript;
+        public string ObjectType { get; set; }
+        public string ObjectName { get; set; }
+        public int LineNumber { get; set; }
+        public string SqlScript { get; set; }
     }
 }

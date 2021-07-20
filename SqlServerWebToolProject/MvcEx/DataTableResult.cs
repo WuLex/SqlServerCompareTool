@@ -22,6 +22,7 @@ namespace SqlServerWebToolProject.MvcEx
             {
                 throw new ArgumentNullException("table");
             }
+
             _table = table;
         }
 
@@ -32,15 +33,15 @@ namespace SqlServerWebToolProject.MvcEx
         //	context.Response.Write(html);
         //}
 
-        public async Task  ExecuteResultAsync(ActionContext context)
+        public async Task ExecuteResultAsync(ActionContext context)
         {
-
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            var executor = context.HttpContext.RequestServices.GetRequiredService<IActionResultExecutor<DataTableResult>>();
+            var executor = context.HttpContext.RequestServices
+                .GetRequiredService<IActionResultExecutor<DataTableResult>>();
             await executor.ExecuteAsync(context, this);
             //context.HttpContext.Response.ContentType = "text/html";
             //context.Response.ContentType = "text/html";
@@ -55,7 +56,7 @@ namespace SqlServerWebToolProject.MvcEx
 
         public DataSetResult(DataSet ds)
         {
-            if( ds == null )
+            if (ds == null)
                 throw new ArgumentNullException("ds");
 
             _ds = ds;
@@ -63,7 +64,8 @@ namespace SqlServerWebToolProject.MvcEx
 
         public Task ExecuteResultAsync(ActionContext context)
         {
-            var executor = context.HttpContext.RequestServices.GetRequiredService<IActionResultExecutor<DataSetResult>>();
+            var executor =
+                context.HttpContext.RequestServices.GetRequiredService<IActionResultExecutor<DataSetResult>>();
             return executor.ExecuteAsync(context, this);
         }
 
@@ -80,15 +82,9 @@ namespace SqlServerWebToolProject.MvcEx
         //    JsonResult json = Json(list);
         //    (json as IActionResult).Ouput(context);
         //}
-        
     }
-    
-
-     
 
 
-
-    
     public class DataSetJsonItem
     {
         public string TableName;
@@ -99,28 +95,31 @@ namespace SqlServerWebToolProject.MvcEx
     {
         public static string TableToHtml(DataTable table)
         {
-            if( table == null )
+            if (table == null)
                 throw new ArgumentNullException("table");
 
             StringBuilder html = new StringBuilder();
             html.AppendLine("<table cellpadding=\"2\" cellspacing=\"1\" class=\"myGridVew\"><thead><tr>");
 
-            for( int i = 0; i < table.Columns.Count; i++ )
+            for (int i = 0; i < table.Columns.Count; i++)
                 html.AppendFormat("<th>{0}</th>", HttpUtility.HtmlEncode(table.Columns[i].ColumnName));
 
             html.AppendLine("</tr></thead><tbody>");
 
             object cell = null;
-            for( int j = 0; j < table.Rows.Count; j++ ) {
+            for (int j = 0; j < table.Rows.Count; j++)
+            {
                 html.AppendLine("<tr>");
 
-                for( int i = 0; i < table.Columns.Count; i++ ) {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
                     cell = table.Rows[j][i];
-                    if( cell == null || DBNull.Value.Equals(cell) )
+                    if (cell == null || DBNull.Value.Equals(cell))
                         html.Append("<td></td>");
                     else
                         html.AppendFormat("<td>{0}</td>", HttpUtility.HtmlEncode(cell.ToString()));
                 }
+
                 html.AppendLine("</tr>");
             }
 
@@ -128,5 +127,4 @@ namespace SqlServerWebToolProject.MvcEx
             return html.ToString();
         }
     }
-
 }

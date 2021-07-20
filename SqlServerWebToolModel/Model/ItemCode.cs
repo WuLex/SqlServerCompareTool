@@ -18,9 +18,9 @@ namespace SqlServerWebToolModel
             this.SqlScript = sql;
         }
 
-        public string Name;
-        public string SqlScript;
-        public ItemType Type;
+        public string Name { get; set; }
+        public string SqlScript { get; set; }
+        public ItemType Type { get; set; }
 
         public string TypeText
         {

@@ -51,7 +51,7 @@ namespace SqlServerWebToolProject
                 //反序列化过程中属性名称是否使用不区分大小写的比较
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
 
-            }); ;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

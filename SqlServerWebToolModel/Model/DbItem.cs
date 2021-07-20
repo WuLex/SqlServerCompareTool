@@ -6,7 +6,7 @@ namespace SqlServerWebToolModel
 {
     public sealed class DbItem
     {
-        public string Name;
+        public string Name { get; set; }
 
         public DbItem(string name)
         {
@@ -14,10 +14,9 @@ namespace SqlServerWebToolModel
         }
     }
 
-
     public sealed class SVFInfo
     {
-        public int total;
-        public List<DbItem> rows;
+        public int total { get; set; }
+        public List<DbItem> rows { get; set; }
     }
 }

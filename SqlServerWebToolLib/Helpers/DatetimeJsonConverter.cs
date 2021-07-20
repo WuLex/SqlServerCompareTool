@@ -17,6 +17,7 @@ namespace SqlServerWebToolLib.Helpers
                 if (DateTime.TryParse(reader.GetString(), out DateTime date))
                     return date;
             }
+
             return reader.GetDateTime();
         }
 
