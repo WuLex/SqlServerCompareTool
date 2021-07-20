@@ -204,7 +204,7 @@ function OpenConnection() {
     var row = GetSelectedRow();
     if (row == null) return false;
     //window.open("Explorer.htm?id=" + row.ConnectionId, "_blank"); return false;
-    $("#btnOpenConnection").attr("target", "_blank").attr("href", "Explorer.htm?id=" + row.ConnectionId);
+    $("#btnOpenConnection").attr("target", "_blank").attr("href", "/Manager/Explorer?id=" + row.ConnectionId);
     return true;
 }
 

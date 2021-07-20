@@ -7,6 +7,7 @@ using System.Text;
 using System.Runtime.CompilerServices;
 using SqlServerWebToolModel;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using SqlServerWebToolLib.Exceptions;
 using SqlServerWebToolLib.Helpers;
 using SqlServerWebToolLib.Interfaces;
@@ -17,8 +18,16 @@ namespace SqlServerWebToolLib.BLL
     {
         private List<ConnectionInfo> s_list = null;
         private readonly Encoding DefaultEncoding = System.Text.Encoding.Unicode;
-        private readonly string s_savePath; //= Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Connection.xml");
+
+
         private readonly IHostingEnvironment _hostingEnvironment;
+
+        private static string _ContentRootPath = MyServiceProvider.ServiceProvider.GetRequiredService<IHostingEnvironment>().ContentRootPath;
+
+        //= Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Connection.xml");
+        private readonly string s_savePath= Path.Combine(_ContentRootPath, @"Files\Connection.xml");
+
+     
 
         /// <inheritdoc />
         public ConnectionManager(IHostingEnvironment env)
@@ -30,10 +39,13 @@ namespace SqlServerWebToolLib.BLL
                 string appDataPath = Path.Combine(_hostingEnvironment.WebRootPath, "App_Data");
                 s_savePath = Path.Combine(_hostingEnvironment.ContentRootPath, @"Files\Connection.xml");
                 if (Directory.Exists(appDataPath) == false)
+                {
                     Directory.CreateDirectory(appDataPath);
+                }
             }
-            catch
+            catch (Exception e)
             {
+                // ignored
             }
         }
 
@@ -120,15 +132,16 @@ namespace SqlServerWebToolLib.BLL
 
 
         private void EnsureListLoaded()
-        {
+        { 
             if (s_list == null)
             {
                 try
                 {
                     s_list = XmlHelper.XmlDeserializeFromFile<List<ConnectionInfo>>(s_savePath, DefaultEncoding);
                 }
-                catch
+                catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     s_list = new List<ConnectionInfo>();
                 }
             }
@@ -144,6 +157,7 @@ namespace SqlServerWebToolLib.BLL
                 }
                 catch
                 {
+                    // ignored
                 }
             }
             else
