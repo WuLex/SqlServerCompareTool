@@ -1,5 +1,5 @@
 ﻿
-$(function() {
+$(function () {
     SetDataGrid();
     SetConnectionDialog();
 });
@@ -19,7 +19,7 @@ function SetDataGrid() {
                     field: 'SSPI',
                     title: '登录方式',
                     width: 150,
-                    formatter: function(value, rec) { return (value ? "Windows连接" : "用户名／密码"); }
+                    formatter: function (value, rec) { return (value ? "Windows连接" : "用户名／密码"); }
                 },
                 { field: 'UserName', title: '登录名', width: 150 },
                 { field: 'Password', title: 'Password', width: 10 }
@@ -48,14 +48,14 @@ function SetDataGrid() {
                 handler: OpenConnection
             }
         ],
-        onDblClickRow: function(rowIndex, rowData) { EditConnection(); }
+        onDblClickRow: function (rowIndex, rowData) { EditConnection(); }
     });
     $('#tblConnList').datagrid('hideColumn', "Password");
 }
 
 
 function SetConnectionDialog() {
-    $("#cboSSPI").SetComboBox().change(function() {
+    $("#cboSSPI").SetComboBox().change(function () {
         var isSSPI = ($("#cboSSPI").combobox('getValue') == "true");
         $("#txtUserName, #txtPassword").attr("disabled", isSSPI);
     });
@@ -90,7 +90,7 @@ function ShowConnectionDialog(onOpenFunc) {
                 text: '取消',
                 iconCls: "icon-cancel",
                 plain: true,
-                handler: function() {
+                handler: function () {
                     $('#divConnectionDialog').dialog('close');
                 }
             }
@@ -109,7 +109,7 @@ function ValidateForm() {
 }
 
 function AddConnection() {
-    ShowConnectionDialog(function() {
+    ShowConnectionDialog(function () {
         $("#hfConnectionId").val("");
         $("#txtServerIP").val("");
         $("#txtUserName").val("");
@@ -122,7 +122,7 @@ function EditConnection() {
     var row = GetSelectedRow();
     if (row == null) return false;
 
-    ShowConnectionDialog(function() {
+    ShowConnectionDialog(function () {
         $("#txtServerIP").val(row.ServerIP);
         $("#txtUserName").val(row.UserName);
         $("#txtPassword").val(row.Password);
@@ -134,9 +134,9 @@ function EditConnection() {
 function SubmitConnectionForm() {
     if (ValidateForm() == false) return false;
     $("#formConnection").ajaxSubmit({
-        beforeSubmit: function(formData, jqForm, options) { $("#spanWait").show(); },
-        complete: function() { $("#spanWait").hide(); },
-        success: function(responseText, statusText) {
+        beforeSubmit: function (formData, jqForm, options) { $("#spanWait").show(); },
+        complete: function () { $("#spanWait").hide(); },
+        success: function (responseText, statusText) {
             if (responseText == "update OK") {
                 $('#divConnectionDialog').dialog('close');
                 //$('#tblConnList').datagrid("reload");	// 这是一种最简单的方法，但需要刷新整个网格。
@@ -151,10 +151,7 @@ function SubmitConnectionForm() {
                 $('#divConnectionDialog').dialog('close');
                 //$('#tblConnList').datagrid("reload");
 
-                var rowObj = {
-                    total: 1,
-                    rows: [{ ConnectionId: responseText }]
-                };
+                var rowObj = { ConnectionId: responseText };
                 UpdateDataRowFromDialog(rowObj);
                 $('#tblConnList').datagrid('appendRow', rowObj);
             } else
@@ -162,15 +159,15 @@ function SubmitConnectionForm() {
         }
     });
 
-    var UpdateDataRowFromDialog = function(rowObj) {
-        rowObj.rows[0].ServerIP = $("#txtServerIP").val();
-        rowObj.rows[0].SSPI = $("#cboSSPI").combobox("getValue");
-        if (rowObj.rows[0].SSPI == "false") {
-            rowObj.rows[0].UserName = $("#txtUserName").val();
-            rowObj.rows[0].Password = $("#txtPassword").val();
+    var UpdateDataRowFromDialog = function (rowObj) {
+        rowObj.ServerIP = $("#txtServerIP").val();
+        rowObj.SSPI = $("#cboSSPI").combobox("getValue");
+        if (rowObj.SSPI == "false") {
+            rowObj.UserName = $("#txtUserName").val();
+            rowObj.Password = $("#txtPassword").val();
         } else { // 不成功的控件，值不会提交回去。
-            rowObj.rows[0].UserName = "";
-            rowObj.rows[0].Password = "";
+            rowObj.UserName = "";
+            rowObj.Password = "";
         }
     }
 }
@@ -182,7 +179,7 @@ function DeleteConnection() {
 
     $.messager.confirm(g_MsgBoxTitle,
         '确定要删除选择的连接记录吗？？',
-        function(dlgResult) {
+        function (dlgResult) {
             if (dlgResult) {
                 $.ajax({
                     cache: false,
@@ -190,7 +187,7 @@ function DeleteConnection() {
                     type: "GET",
                     url: "/AjaxService/DeleteConnection",
                     data: { connectionId: row.ConnectionId },
-                    success: function(responseText) {
+                    success: function (responseText) {
                         var index = $('#tblConnList').datagrid('getRowIndex', row);
                         $('#tblConnList').datagrid('deleteRow', index);
                     }
@@ -215,12 +212,12 @@ function TestConnection() {
         cache: false,
         url: "/AjaxService/TestConnection",
 
-        beforeSubmit: function(formData, jqForm, options) {
+        beforeSubmit: function (formData, jqForm, options) {
             $("#spanWait").show();
 
         },
-        complete: function() { $("#spanWait").hide(); },
-        success: function(responseText, statusText) {
+        complete: function () { $("#spanWait").hide(); },
+        success: function (responseText, statusText) {
             if (responseText == "ok") $.messager.alert(g_MsgBoxTitle, '连接参数有效。', 'info');
             else $.messager.alert(g_MsgBoxTitle, '指定的连接参数不能连接到服务器，<br />服务器返回错误代码或消息：' + responseText, 'error');
         }

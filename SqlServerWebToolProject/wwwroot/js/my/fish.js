@@ -1,7 +1,7 @@
 ﻿
 var g_MsgBoxTitle = "SqlServerSmallTool - http://www.cnblogs.com/fish-li";
 var __waitHTML =
-    '<div style="padding: 20px;"><img src="Images/progress_loading.gif" /><span style="font-weight: bold;padding-left: 10px; color: #FF66CC;">请稍后......</span></div>';
+    '<div style="padding: 20px;"><img src="/Images/progress_loading.gif" /><span style="font-weight: bold;padding-left: 10px; color: #FF66CC;">请稍后......</span></div>';
 
 
 $(function() {

@@ -838,19 +838,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\acer\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
+      "projectUniqueName": "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
       "projectName": "SqlServerWebToolProject",
-      "projectPath": "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolProject\\obj\\",
+      "projectPath": "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolProject\\SqlServerWebToolProject.csproj",
+      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+      "outputPath": "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -864,11 +868,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj": {
-              "projectPath": "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj"
+            "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj": {
+              "projectPath": "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolLib\\SqlServerWebToolLib.csproj"
             },
-            "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj": {
-              "projectPath": "D:\\mynetcoreproject\\SqlServerWebTool\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj"
+            "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj": {
+              "projectPath": "E:\\mynetcoreProject\\SqlServerWebTool\\SqlServerWebToolModel\\SqlServerWebToolModel.csproj"
             }
           }
         }
@@ -900,7 +904,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

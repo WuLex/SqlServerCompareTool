@@ -31,3 +31,4 @@ D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlS
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.dll
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\ref\SqlServerWebToolModel.dll
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.pdb
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolModel\obj\Debug\net5.0\SqlServerWebToolModel.csprojAssemblyReference.cache

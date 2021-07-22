@@ -147,3 +147,4 @@ D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\re
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\SqlServerWebToolProject.pdb
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\SqlServerWebToolProject.genruntimeconfig.cache
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\bin\Debug\net5.0\libman.json
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolProject\bin\Debug\net5.0\libman.json
