@@ -66,7 +66,13 @@ function GetSelectedRow() {
     if (row)
         return row;
     else {
-        $.messager.alert(g_MsgBoxTitle, '请选择一条连接的记录。', 'warning');
+        //$.messager.alert(g_MsgBoxTitle, '请选择一条连接的记录。', 'warning');
+        $.messager.alert({
+            title: g_MsgBoxTitle,
+            msg: '请选择一条连接的记录。',
+            icon: 'warning',
+            width: 300
+        });
         return null;
     }
 }

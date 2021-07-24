@@ -1,5 +1,5 @@
 ﻿
-var g_MsgBoxTitle = "SqlServerSmallTool - http://www.cnblogs.com/fish-li";
+var g_MsgBoxTitle = "SqlServer在线管理小工具";
 var __waitHTML =
     '<div style="padding: 20px;"><img src="/Images/progress_loading.gif" /><span style="font-weight: bold;padding-left: 10px; color: #FF66CC;">请稍后......</span></div>';
 
@@ -126,6 +126,83 @@ function SetSearchTextbox(textboxId, hiddenId, pickButtonClick) {
 
 
 function SetChoiceDbControls() {
+    // Create Choice Database Dialog
+    var j_dialog = $('<div id="dlgChoiceDB" title="选择连接帐号"></div>');
+    var j_tableDbList = $('<table id="tblDbListInDialog"></table>');
+    j_tableDbList.appendTo(j_dialog).show();
+    j_dialog.appendTo($(document.body));
+
+    //----------------------------------------------
+    var ShowSelectedConnAndFillDbComboBox = function (textboxId, hiddenId, cboDb) {
+        var list = null;
+        $.ajax({
+            async: false,
+            dataType: "json",
+            type: "GET",
+            url: '/AjaxService/GetAllConnectionInfo',
+            success: function (json) {
+                list = json;
+            }
+        });
+        if (list == null) return false;
+
+        j_dialog.show().dialog({
+            height: 300,
+            width: 570,
+            modal: true,
+            resizable: true,
+            buttons: [
+                {
+                    text: '确定',
+                    iconCls: 'icon-ok',
+                    plain: true,
+                    handler: function () {
+                        var row = j_tableDbList.datagrid('getSelected');
+                        if (row == null) {
+                            $.messager.alert(g_MsgBoxTitle, '请选择一条连接的记录。', 'warning');
+                            return false;
+                        } else {
+                            $("#" + textboxId).val(row.ServerIP + ", " + row.UserName);
+                            $("#" + hiddenId).val(row.ConnectionId);
+                            $("#" + cboDb).combobox("loadData", []).combobox("clear");
+                            FillDbComboBox(cboDb, row);
+                            j_dialog.dialog('close');
+                        }
+                    }
+                },
+                {
+                    text: '取消',
+                    iconCls: 'icon-cancel',
+                    plain: true,
+                    handler: function () {
+                        j_dialog.dialog('close');
+                    }
+                }
+            ],
+            onOpen: function () {
+                SetDataGrid();
+                j_tableDbList.show();
+                j_tableDbList.datagrid('loadData', list);
+            }
+        });
+    }
+
+    var FillDbComboBox = function (cboDb, row) {
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: '/AjaxService/GetDbList',
+            data: { connectionId: row.ConnectionId },
+            success: function (json) {
+                $("#" + cboDb).combobox("loadData", json);
+            }
+        });
+    }
+
+
+    //----------------------------------------------
+
+
     SetSearchTextbox("txtSrcConn",
         "hfSrcConnId",
         function() { ShowSelectedConnAndFillDbComboBox("txtSrcConn", "hfSrcConnId", "cboSrcDB"); });
@@ -141,11 +218,7 @@ function SetChoiceDbControls() {
         if ($("#txtDestConn").val().length == 0) $("#cboDestDB").combobox("loadData", []).combobox("clear");
     });
 
-    // Create Choice Database Dialog
-    var j_dialog = $('<div id="dlgChoiceDB" title="选择连接帐号"></div>');
-    var j_tableDbList = $('<table id="tblDbListInDialog"></table>');
-    j_tableDbList.appendTo(j_dialog).show();
-    j_dialog.appendTo($(document));
+    
 
     var _SetDataGrid = false;
     var SetDataGrid = function() {
@@ -174,72 +247,10 @@ function SetChoiceDbControls() {
         j_tableDbList.datagrid('hideColumn', "ConnectionId");
     };
 
-    var ShowSelectedConnAndFillDbComboBox = function(textboxId, hiddenId, cboDb) {
-        var list = null;
-        $.ajax({
-            async: false,
-            dataType: "json",
-            type: "GET",
-            url: '/AjaxService/GetAllConnectionInfo',
-            success: function(json) {
-                list = json;
-            }
-        });
-        if (list == null) return false;
-
-        j_dialog.show().dialog({
-            height: 300,
-            width: 570,
-            modal: true,
-            resizable: true,
-            buttons: [
-                {
-                    text: '确定',
-                    iconCls: 'icon-ok',
-                    plain: true,
-                    handler: function() {
-                        var row = j_tableDbList.datagrid('getSelected');
-                        if (row == null) {
-                            $.messager.alert(g_MsgBoxTitle, '请选择一条连接的记录。', 'warning');
-                            return false;
-                        } else {
-                            $("#" + textboxId).val(row.ServerIP + ", " + row.UserName);
-                            $("#" + hiddenId).val(row.ConnectionId);
-                            $("#" + cboDb).combobox("loadData", []).combobox("clear");
-                            FillDbComboBox(cboDb, row);
-                            j_dialog.dialog('close');
-                        }
-                    }
-                },
-                {
-                    text: '取消',
-                    iconCls: 'icon-cancel',
-                    plain: true,
-                    handler: function() {
-                        j_dialog.dialog('close');
-                    }
-                }
-            ],
-            onOpen: function() {
-                SetDataGrid();
-                j_tableDbList.show();
-                j_tableDbList.datagrid('loadData', list);
-            }
-        });
-    }
-
-    var FillDbComboBox = function(cboDb, row) {
-        $.ajax({
-            dataType: "json",
-            type: "GET",
-            url: '/AjaxService/GetDbList',
-            data: { connectionId: row.ConnectionId },
-            success: function(json) {
-                $("#" + cboDb).combobox("loadData", json);
-            }
-        });
-    }
+    
 }
+
+
 
 function Check2ConnDB() {
     if ($("#hfSrcConnId").val().length == 0) {

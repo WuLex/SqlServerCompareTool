@@ -6,22 +6,22 @@
 <html>
 <head>
     <title>SqlServerWebTool</title>
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/default/easyui.css" />
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/icon.css" />
-
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css" />
     <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css" />
-    <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
+    @*<script type="text/javascript" src="~/lib/jquery/jquery.js"></script>*@
     <script type="text/javascript" src="/js/jquery/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.9/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.9/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
 
     <script type="text/javascript" src="/js/my/fish.js"></script>
     <script type="text/javascript" src="/js/my/Home.js"></script>
 </head>
 
 <body class="easyui-layout">
-    <div data-options="region:'west',split:true" style="width:450px;overflow: hidden" title="工具列表">
+    <div region="west" title="工具列表" split="true" style="width: 450px; overflow: hidden">
         <div id="divToolList" class="easyui-accordion" fit="true">
             <div title="比较数据库" iconcls="icon-Copy2" style="overflow: auto; padding: 10px;" selected="true">
                 <h3 class="blueText">
@@ -58,15 +58,13 @@
             </div>
         </div>
     </div>
-  
-
-    <div data-options="region:'center'" style="overflow: hidden;" title="数据库连接列表" iconcls="icon-Relation">
+    <div region="center" style="overflow: hidden;" title="数据库连接列表" iconcls="icon-Relation">
         <div class="easyui-layout" fit="true" border="false">
-            <div data-options="region:'center'">
+            <div region="center">
                 <table id="tblConnList">
                 </table>
             </div>
-            <div data-options="region:'south',split:true" style="height: 220px; padding: 10px;" title="操作说明"
+            <div region="south" split="true" style="height: 220px; padding: 10px;" title="操作说明"
                  iconcls="icon-help">
                 <p>
                     1. “新增连接”，“删除连接”，“设置连接”用于维护连接记录。
@@ -128,6 +126,5 @@
             </div>
         </form>
     </div>
-
 </body>
 </html>

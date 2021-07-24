@@ -109,9 +109,9 @@ namespace SqlServerWebToolLib.BLL
         protected string GetDbConnectionString(ConnectionInfo info)
         {
             if (info.SSPI)
-                return string.Format("server={0};integrated security=SSPI", info.ServerIP);
+                return string.Format("server={0};integrated security=SSPI;Connect Timeout=800;MultipleActiveResultSets=true;", info.ServerIP);
             else
-                return string.Format("server={0};user id={1};password={2}", info.ServerIP, info.UserName,
+                return string.Format("server={0};user id={1};password={2};Connect Timeout=800;MultipleActiveResultSets=true;", info.ServerIP, info.UserName,
                     info.Password);
         }
 

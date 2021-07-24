@@ -9,7 +9,7 @@ namespace SqlServerWebToolModel
     {
         public string id { get; set; }
         public string text { get; set; }
-        public string state;
+        public string state { get; set; }
         public List<JsTreeNode> children { get; set; }
         public JsTreeNodeCustAttr attributes { get; set; }
     }

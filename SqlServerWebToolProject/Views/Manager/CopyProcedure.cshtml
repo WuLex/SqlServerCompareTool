@@ -6,14 +6,22 @@
 
 <html>
 <head>
-    <title>复制存储过程工具 - SqlServerSmallTool - http://www.cnblogs.com/fish-li</title>
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css" />
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css" />
+    <title>复制存储过程工具 - SqlServerWebTool</title>
+    @*<link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css" />
+        <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css" />*@
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/default/easyui.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/icon.css" />
+
+
     <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css" />
-    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
-    @* <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>*@
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
+    @*<script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>*@
+    <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+
+    @*<script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>*@
+
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.9/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery/jquery-easyui-1.9/easyui-lang-zh_CN.js"></script>
 
     <script type="text/javascript" src="/js/my/fish.js"></script>
     <script type="text/javascript" src="/js/my/CopyProcedure.js"></script>
@@ -21,10 +29,56 @@
 <body class="easyui-layout">
 
 
-    <div region="north" split="true" style="height: 100px; overflow: hidden;">
+    @*<div region="north" split="true" style="height: 100px; overflow: hidden;">
+            <div class="easyui-layout" fit="true" border="false">
+
+                <div region="west" style="width: 850px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;" split="true" title="选择数据库">
+                    <table cellpadding="3" cellspacing="0" style="border: 0px;" id="tblChoiceConn">
+                        <tr>
+                            <td>源</td>
+                            <td>连接帐号</td>
+                            <td style="width: 320px">
+                                <input type="text" id="txtSrcConn" class="myTextbox" style="width: 300px" />
+                            </td>
+                            <td>数据库</td>
+                            <td style="width: 220px">
+                                <select id="cboSrcDB" style="width: 200px"></select>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" id="btnRefresh" class="easyui-linkbutton" iconCls="icon-reload">刷新列表</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>目标</td>
+                            <td>连接帐号</td>
+                            <td>
+                                <input type="text" id="txtDestConn" class="myTextbox" style="width: 300px" />
+                            </td>
+                            <td>数据库</td>
+                            <td>
+                                <select id="cboDestDB" style="width: 200px"></select>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" id="btnRun" class="easyui-linkbutton" iconCls="icon-Run">开始复制</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" id="hfSrcConnId" value="" />
+                    <input type="hidden" id="hfDestConnId" value="" />
+                </div>
+
+                <div region="center" title="运行消息" id="divExecuteResult" style="overflow: scroll; padding: 5px; background-color: #D2E9FF;" split="true">
+                </div>
+
+            </div>
+        </div>*@
+    <div data-options="region:'north',border:true,split:true,hideCollapsedContent:false" style="height:200px;background: #D2E9FF">
         <div class="easyui-layout" fit="true" border="false">
 
-            <div region="west" style="width: 850px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;" split="true" title="选择数据库">
+            @*<div region="west" style="width: 850px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;" split="true" title="选择数据库">
+
+                </div>*@
+            <div data-options="region:'west',split:true" style="width:60%;padding:10px; background-color: #D2E9FF;" title="选择数据库">
                 <table cellpadding="3" cellspacing="0" style="border: 0px;" id="tblChoiceConn">
                     <tr>
                         <td>源</td>
@@ -59,30 +113,48 @@
                 <input type="hidden" id="hfDestConnId" value="" />
             </div>
 
-            <div region="center" title="运行消息" id="divExecuteResult" style="overflow: scroll; padding: 5px; background-color: #D2E9FF;" split="true">
+            @*<div region="center" title="运行消息" id="divExecuteResult" style="overflow: scroll; padding: 5px; background-color: #D2E9FF;" split="true">
+                </div>*@
+            <div data-options="region:'center',split:true" id="divExecuteResult" style="overflow: scroll; padding: 5px; background-color: #D2E9FF;" title="运行消息">
             </div>
-
         </div>
     </div>
 
-    <div region="center">
 
+
+    @*<div region="center">
+
+            <div class="easyui-layout" fit="true" border="false">
+                <div region="west" split="true" style="width: 430px;" title="源数据库存储过程（只读）">
+                    <table id="tblSpList"></table>
+                </div>
+
+                <div region="center" split="true" title="源数据库视图（只读）">
+                    <table id="tblViewList"></table>
+                </div>
+
+                <div region="east" split="true" style="width: 330px;" title="源数据库自定义函数（只读）">
+                    <table id="tblFuncList"></table>
+                </div>
+
+            </div>
+
+        </div>*@
+
+    <div data-options="region:'center'">
         <div class="easyui-layout" fit="true" border="false">
-            <div region="west" split="true" style="width: 430px;" title="源数据库存储过程（只读）">
+            <div data-options="region:'west',split:true" style="width:20%" title="源数据库存储过程（只读）">
                 <table id="tblSpList"></table>
             </div>
-
-            <div region="center" split="true" title="源数据库视图（只读）">
+            <div data-options="region:'center',split:true" style="width:60%" title="源数据库视图（只读）">
                 <table id="tblViewList"></table>
             </div>
-
-            <div region="east" split="true" style="width: 330px;" title="源数据库自定义函数（只读）">
+            <div data-options="region:'east',split:true" style="width: 20%" title="源数据库自定义函数（只读）">
                 <table id="tblFuncList"></table>
             </div>
-
         </div>
-
     </div>
+
 
     <div class="waitMessageStyle">
         <img src="/Images/progress_loading.gif" /><span>请稍后......</span>

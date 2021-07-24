@@ -87,8 +87,8 @@ namespace SqlServerWebToolProject.MvcEx
 
     public class DataSetJsonItem
     {
-        public string TableName;
-        public string Html;
+        public string TableName { get; set; }
+        public string Html { get; set; }
     }
 
     public static class DataTableHelper

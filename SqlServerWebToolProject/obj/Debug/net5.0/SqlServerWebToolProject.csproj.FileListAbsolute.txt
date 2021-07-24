@@ -148,3 +148,5 @@ D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\Sq
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\SqlServerWebToolProject.genruntimeconfig.cache
 D:\mynetcoreproject\SqlServerWebTool\SqlServerWebToolProject\bin\Debug\net5.0\libman.json
 E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolProject\bin\Debug\net5.0\libman.json
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\Razor\Views\Manager\Index - (easyui 1.2版本布局).cshtml.g.cs
+E:\mynetcoreProject\SqlServerWebTool\SqlServerWebToolProject\obj\Debug\net5.0\Razor\Views\Manager\Explorer- -  (easyui 1.2版本布局).cshtml.g.cs

@@ -7,22 +7,23 @@
 <html>
 <head>
     <title>Database 浏览器 - SqlServerWebTool</title>
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/default/easyui.css" />
-    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.9/themes/icon.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/default/easyui.css" />
+    <link type="text/css" rel="Stylesheet" href="/js/jquery/jquery-easyui-1.2/themes/icon.css" />
     <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shCore.css" />
     <link type="text/css" rel="Stylesheet" href="/js/syntaxhighlighter/shThemeDefault.css" />
     <link type="text/css" rel="Stylesheet" href="/css/StyleSheet.css" />
-    <script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-1.4.4.min.js"></script>
+    @*<script type="text/javascript" src="~/lib/jquery/jquery.js"></script>*@
     <script type="text/javascript" src="/js/jquery/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.9/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.9/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-easyui-1.2/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="/js/syntaxhighlighter/shCore.js"></script>
     <script type="text/javascript" src="/js/syntaxhighlighter/shBrushSql.js"></script>
     <script type="text/javascript" src="/js/my/fish.js"></script>
     <script type="text/javascript" src="/js/my/Explorer.js"></script>
 </head>
 <body class="easyui-layout">
-    <div data-options="region:'north',split:true,hideCollapsedContent:false" style="height: 100px; overflow: hidden; padding: 3px 10px; "
+    <div region="north" style="height: 65px; overflow: hidden; padding: 3px 10px; background-color: #D2E9FF;"
          title="数据库连接参数">
         <table cellpadding="3" cellspacing="0" id="tblConnectionInfo" style="border: 0px; float: left;">
             <tr>
@@ -58,13 +59,11 @@
             </label>
         </div>
     </div>
-
-    <div data-options="region:'west',split:true" style="width: 350px;" title="对象列表">
+    <div region="west" title="对象列表" split="true" style="width: 350px;">
         <ul id="ulTree">
         </ul>
     </div>
-
-    <div data-options="region:'center'" style="overflow: hidden;">
+    <div region="center" style="overflow: hidden;">
         <div id="tabs" class="easyui-tabs" fit="true" border="false" style="overflow: hidden;">
             <div title="操作说明" style="overflow: scroll;" closable="true">
                 <div style="padding: 20px">
@@ -84,8 +83,6 @@
     <div class="waitMessageStyle">
         <img src="/Images/progress_loading.gif" /><span>请稍后......</span>
     </div>
-
-
     <div id="mm_tab" class="easyui-menu" style="width: 160px;">
         <div id="mm_closeCurrent" iconcls="icon-close">
             关闭当前页

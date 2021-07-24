@@ -165,7 +165,7 @@ h3.success {
 	height: 22px;
 }
 
-/*----------------------------  jquery-easyui  ------------------------------*/
+/*----------------------------  jquery-easyui 1.2 自定义添加的样式------------------------------*/
 .spinner, .combo{
 	height: 22px; 
 	border: 1px solid #ccc;
@@ -253,3 +253,7 @@ span .ui-button-text{
 	background:url('../Images/close.gif') no-repeat;	
 }
 
+/*----------------------------  jquery-easyui 1.9 自定义添加的样式------------------------------*/
+.tabs-title {
+	color: #FF6666;
+}

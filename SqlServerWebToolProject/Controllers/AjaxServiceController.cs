@@ -251,7 +251,8 @@ namespace SqlServerWebToolProject.Controllers
             return Json(result);
         }
 
-        public IActionResult CompareDB(CompareDbOption option)
+        [HttpPost]
+        public IActionResult CompareDB([FromBody]CompareDbOption option)
         {
             var result = CompareDBHelper.CompareDB(option.SrcConnId, option.DestConnId,
                 option.SrcDb, option.DestDb, option.Flag);
@@ -261,10 +262,10 @@ namespace SqlServerWebToolProject.Controllers
 
     public class CompareDbOption
     {
-        public string SrcConnId;
-        public string DestConnId;
-        public string SrcDb;
-        public string DestDb;
-        public string Flag;
+        public string SrcConnId { get; set; }
+        public string DestConnId { get; set; }
+        public string SrcDb { get; set; }
+        public string DestDb { get; set; }
+        public string Flag { get; set; }
     }
 }
