@@ -1,4 +1,4 @@
-# SqlServerWebTool
+# SqlServerCompareTool
 ASP.NET CORE MVC+ Jquery Easy UI 实现SQL SERVER的Web版数据库比较工具
 
 -------------------------
