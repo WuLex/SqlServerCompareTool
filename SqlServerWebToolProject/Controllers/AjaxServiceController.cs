@@ -32,7 +32,7 @@ namespace SqlServerWebToolProject.Controllers
             if (string.IsNullOrEmpty(id))
                 throw new ArgumentNullException("id");
 
-            string[] array = id.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+            string[] array = id.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             if (array.Length != 2)
                 throw new ArgumentException("id is error.");
 
@@ -252,7 +252,7 @@ namespace SqlServerWebToolProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult CompareDB([FromBody]CompareDbOption option)
+        public IActionResult CompareDB([FromBody] CompareDbOption option)
         {
             var result = CompareDBHelper.CompareDB(option.SrcConnId, option.DestConnId,
                 option.SrcDb, option.DestDb, option.Flag);

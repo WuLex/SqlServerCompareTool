@@ -6,7 +6,7 @@ using System.Text;
 namespace SqlServerWebToolLib.Exceptions
 {
     [Serializable]
-    public class MyMessageException :Exception
+    public class MyMessageException : Exception
     {
         // Methods
         public MyMessageException(string message)

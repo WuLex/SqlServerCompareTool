@@ -75,7 +75,7 @@ namespace SqlServerWebToolLib.Helpers
             {
                 using (StreamReader sr = new StreamReader(ms, encoding))
                 {
-                    return (T) mySerializer.Deserialize(sr);
+                    return (T)mySerializer.Deserialize(sr);
                 }
             }
         }

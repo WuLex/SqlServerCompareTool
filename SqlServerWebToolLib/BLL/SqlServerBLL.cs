@@ -31,7 +31,7 @@ namespace SqlServerWebToolLib.BLL
             }
         }
 
-        private static readonly string[] s_NewLine = new string[] {"\r\n"};
+        private static readonly string[] s_NewLine = new string[] { "\r\n" };
 
         public override string[] SplitCodeToLineArray(string code)
         {

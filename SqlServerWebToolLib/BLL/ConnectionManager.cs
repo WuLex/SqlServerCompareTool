@@ -22,12 +22,12 @@ namespace SqlServerWebToolLib.BLL
 
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        private static string _ContentRootPath = MyServiceProvider.ServiceProvider.GetRequiredService<IHostingEnvironment>().ContentRootPath;
+        private static string _ContentRootPath =
+            MyServiceProvider.ServiceProvider.GetRequiredService<IHostingEnvironment>().ContentRootPath;
 
         //= Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Connection.xml");
-        private readonly string s_savePath= Path.Combine(_ContentRootPath, @"Files\Connection.xml");
+        private readonly string s_savePath = Path.Combine(_ContentRootPath, @"Files\Connection.xml");
 
-     
 
         /// <inheritdoc />
         public ConnectionManager(IHostingEnvironment env)
@@ -132,14 +132,14 @@ namespace SqlServerWebToolLib.BLL
 
 
         private void EnsureListLoaded()
-        { 
+        {
             if (s_list == null)
             {
                 try
                 {
                     s_list = XmlHelper.XmlDeserializeFromFile<List<ConnectionInfo>>(s_savePath, DefaultEncoding);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                     s_list = new List<ConnectionInfo>();

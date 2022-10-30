@@ -28,7 +28,7 @@ namespace SqlServerWebToolLib.BLL
 
         private static void ThreadWorkAction(object obj)
         {
-            ThreadParam param = (ThreadParam) obj;
+            ThreadParam param = (ThreadParam)obj;
             try
             {
                 param.Result =
@@ -94,7 +94,7 @@ namespace SqlServerWebToolLib.BLL
             // 按数据库对象类别分次比较。
             for (int typeIndex = 0; typeIndex < 4; typeIndex++)
             {
-                ItemType currentType = (ItemType) typeIndex;
+                ItemType currentType = (ItemType)typeIndex;
 
                 foreach (ItemCode item1 in list1)
                 {

@@ -47,15 +47,15 @@ namespace SqlServerWebToolLib.Helpers
             if (string.IsNullOrEmpty(tableName))
                 throw new ArgumentNullException("tableName");
 
-            SqlConnection conn = (SqlConnection) connection;
+            SqlConnection conn = (SqlConnection)connection;
             if (string.IsNullOrEmpty(dbName))
                 dbName = conn.Database;
 
             if (string.IsNullOrEmpty(dbName))
                 throw new ArgumentNullException("dbName");
 
-            string[] array1 = new string[2] {STR_ConnectionInfo9, STR_ConnectionInfo10};
-            string[] array2 = new string[] {STR_SMO9, STR_SMO10};
+            string[] array1 = new string[2] { STR_ConnectionInfo9, STR_ConnectionInfo10 };
+            string[] array2 = new string[] { STR_SMO9, STR_SMO10 };
 
             Type serverType = null;
             Type databaseType = null;
@@ -89,18 +89,18 @@ namespace SqlServerWebToolLib.Helpers
 
             object databaseColl = serverType.InvokeMember("Databases", bf_GetProperty, null, serverObject, null);
             object database =
-                databaseCollType.InvokeMember("Item", bf_GetProperty, null, databaseColl, new object[] {dbName});
+                databaseCollType.InvokeMember("Item", bf_GetProperty, null, databaseColl, new object[] { dbName });
             object tableColl = databaseType.InvokeMember("Tables", bf_GetProperty, null, database, null);
             object table =
-                tableCollType.InvokeMember("Item", bf_GetProperty, null, tableColl, new object[] {tableName});
+                tableCollType.InvokeMember("Item", bf_GetProperty, null, tableColl, new object[] { tableName });
             object options = Activator.CreateInstance(scriptingOptionsType);
-            scriptingOptionsType.InvokeMember("ClusteredIndexes", bf_SetProperty, null, options, new object[] {true});
-            scriptingOptionsType.InvokeMember("Default", bf_SetProperty, null, options, new object[] {true});
-            scriptingOptionsType.InvokeMember("DriAll", bf_SetProperty, null, options, new object[] {true});
-            scriptingOptionsType.InvokeMember("Indexes", bf_SetProperty, null, options, new object[] {true});
+            scriptingOptionsType.InvokeMember("ClusteredIndexes", bf_SetProperty, null, options, new object[] { true });
+            scriptingOptionsType.InvokeMember("Default", bf_SetProperty, null, options, new object[] { true });
+            scriptingOptionsType.InvokeMember("DriAll", bf_SetProperty, null, options, new object[] { true });
+            scriptingOptionsType.InvokeMember("Indexes", bf_SetProperty, null, options, new object[] { true });
 
             StringCollection coll =
-                (StringCollection) tableType.InvokeMember("Script", bf_Invoke, null, table, new object[] {options});
+                (StringCollection)tableType.InvokeMember("Script", bf_Invoke, null, table, new object[] { options });
 
             StringBuilder sb = new StringBuilder();
             foreach (string str in coll)

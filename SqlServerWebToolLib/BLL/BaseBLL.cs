@@ -109,9 +109,13 @@ namespace SqlServerWebToolLib.BLL
         protected string GetDbConnectionString(ConnectionInfo info)
         {
             if (info.SSPI)
-                return string.Format("server={0};integrated security=SSPI;Connect Timeout=800;MultipleActiveResultSets=true;", info.ServerIP);
+                return string.Format(
+                    "server={0};integrated security=SSPI;Connect Timeout=800;MultipleActiveResultSets=true;",
+                    info.ServerIP);
             else
-                return string.Format("server={0};user id={1};password={2};Connect Timeout=800;MultipleActiveResultSets=true;", info.ServerIP, info.UserName,
+                return string.Format(
+                    "server={0};user id={1};password={2};Connect Timeout=800;MultipleActiveResultSets=true;",
+                    info.ServerIP, info.UserName,
                     info.Password);
         }
 
@@ -380,7 +384,7 @@ namespace SqlServerWebToolLib.BLL
             if (string.IsNullOrEmpty(tableNames))
                 throw new ArgumentNullException("tableNames");
 
-            string[] tblNameArray = tableNames.Split(new char[] {';', ','}, StringSplitOptions.RemoveEmptyEntries);
+            string[] tblNameArray = tableNames.Split(new char[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
             DataSet ds = new DataSet();
 
             string connectionString = GetDbConnectionString(info, dbName);
@@ -403,19 +407,19 @@ namespace SqlServerWebToolLib.BLL
         {
             string[] tableNameArray = null;
             if (string.IsNullOrEmpty(tblNames) == false)
-                tableNameArray = tblNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                tableNameArray = tblNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] spNameArray = null;
             if (string.IsNullOrEmpty(spNames) == false)
-                spNameArray = spNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                spNameArray = spNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] funcNameArray = null;
             if (string.IsNullOrEmpty(funcNames) == false)
-                funcNameArray = funcNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                funcNameArray = funcNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] viewNameArray = null;
             if (string.IsNullOrEmpty(viewNames) == false)
-                viewNameArray = viewNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                viewNameArray = viewNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             List<ItemCode> list = new List<ItemCode>();
             string connectionString = GetDbConnectionString(info, dbName);
@@ -553,19 +557,19 @@ namespace SqlServerWebToolLib.BLL
 
                 if (string.IsNullOrEmpty(spNames) == false)
                 {
-                    foreach (string name in spNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries))
+                    foreach (string name in spNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                         list.Add(GetProcedureItem(connection, name));
                 }
 
                 if (string.IsNullOrEmpty(funcNames) == false)
                 {
-                    foreach (string name in funcNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries))
+                    foreach (string name in funcNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                         list.Add(GetFunctionItem(connection, name));
                 }
 
                 if (string.IsNullOrEmpty(viewNames) == false)
                 {
-                    foreach (string name in viewNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries))
+                    foreach (string name in viewNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                         list.Add(GetViewItem(connection, name));
                 }
             }
@@ -579,19 +583,19 @@ namespace SqlServerWebToolLib.BLL
         {
             string[] tableNameArray = null;
             if (string.IsNullOrEmpty(tblNames) == false)
-                tableNameArray = tblNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                tableNameArray = tblNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] spNameArray = null;
             if (string.IsNullOrEmpty(spNames) == false)
-                spNameArray = spNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                spNameArray = spNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] funcNameArray = null;
             if (string.IsNullOrEmpty(funcNames) == false)
-                funcNameArray = funcNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                funcNameArray = funcNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] viewNameArray = null;
             if (string.IsNullOrEmpty(viewNames) == false)
-                viewNameArray = viewNames.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                viewNameArray = viewNames.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             string connectionString = GetDbConnectionString(info, dbName);
 

@@ -35,7 +35,6 @@ namespace SqlServerWebToolProject
             services.AddScoped<IConnectionManager, ConnectionManager>();
             services.AddMvc().AddJsonOptions(options =>
             {
-
                 //格式化日期时间格式
                 options.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverter());
                 //数据格式首字母小写
@@ -50,7 +49,6 @@ namespace SqlServerWebToolProject
                 options.JsonSerializerOptions.AllowTrailingCommas = true;
                 //反序列化过程中属性名称是否使用不区分大小写的比较
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
-
             });
         }
 
@@ -67,6 +65,7 @@ namespace SqlServerWebToolProject
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
             app.UseStaticFiles();
 
             app.UseRouting();
