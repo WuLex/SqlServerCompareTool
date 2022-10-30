@@ -1,6 +1,9 @@
-# SqlServerWebTool
-ASP.NET CORE MVC+ Jquery Easy UI 实现SQL SERVER的Web版管理辅助小工具
+# SqlServerCompareTool
+ASP.NET CORE MVC+ Jquery Easy UI 实现SQL SERVER的Web版数据库比较工具
 
+-------------------------
+
+ASP.NET CORE MVC+ Jquery Easy UI implements SQL SERVER's Web version Database Compare Tool
 ## 效果如图：
 ![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/webTool/sqltool-manager-index.png)
 
